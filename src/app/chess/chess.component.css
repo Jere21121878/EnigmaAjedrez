@@ -1,0 +1,127 @@
+.chess-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.chess-board {
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid rgb(9, 6, 6);
+   position: relative;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
+}
+
+.square:hover, .large-square:hover {
+  border: 2px solid red;
+}
+
+.counter {
+  display: inline-block;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.large-chess-board {
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid black;
+  width: 1000px;  
+  height: 1000px; 
+  position: relative;
+  cursor: pointer;
+}
+
+.color-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.color-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+ .color-circle.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  color: #FFF;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.color-circle.red {
+  background-color: red;
+  right: 110px;  
+}
+
+.color-circle.blue {
+  background-color: blue;
+  right: 40px;  
+}
+
+ 
+.my-float {
+  margin-top: 0;
+}
+
+ 
+.header-row {
+  display: flex;
+}
+
+
+.header-cell {
+  width: 40px;  
+  height: 40px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #b2afb1;   
+}
+.large-row {
+  display: flex;
+}
+
+.large-square {
+  width: 40px;
+  height: 40px;
+}
+
+.large-white {
+  background-color: white;
+}
+
+.large-black {
+  background-color: black;
+}

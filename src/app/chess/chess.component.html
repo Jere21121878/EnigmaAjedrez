@@ -1,0 +1,74 @@
+<div class="chess-container">
+  <p>Un muchacho se entretiene pintando su tablero de ajedrez. 
+    Planea cubrir cada espacio por completo en tonos rojos o azules. Para darle un
+     toque personal, quiere contar con
+     igual cantidad de espacios rojos y azules, evitando a su vez que dos filas 
+     o columnas presenten el mismo número de espacios rojos.
+      ¿Podría pintar el tablero 
+     siguiendo estos criterios? ¿Qué pasaría si, 
+    en lugar de un tablero de ajedrez tradicional de 8x8, tuviera uno enorme de 1000x1000?</p>
+  <h1>Tablero de Ajedrez 8x8 <br> 
+    
+    <div class="counter">
+      <p>Cuadrados Rojos: {{ redCountSmall }}</p>
+      <p>Cuadrados Azules: {{ blueCountSmall }}</p>
+    </div>
+  </h1>
+  
+  <button (click)="resetBoard('small')" class="reset-button">Limpiar Colores</button>
+
+  <div class="color-selector">
+    <div class="color-circle float red" (click)="selectColor('red')">
+      <i class="fa fa-paint-brush my-float"></i>
+    </div>
+    <div class="color-circle float blue" (click)="selectColor('blue')">
+      <i class="fa fa-paint-brush my-float"></i>
+    </div>
+  </div>
+
+  <button (click)="generatePattern()" class="generate-pattern-button">Generar Patron que mas se aproxima a la totalidad</button>
+
+  <div class="chess-board">
+    <div *ngIf="message" class="message">{{ message }}</div>
+
+    <div class="row header-row">
+      
+      <div class="header-cell"></div>  
+      <div *ngFor="let col of [].constructor(8); let j = index" class="header-cell">{{ j + 1 }}</div> <!-- Números de columna -->
+    </div>
+    
+    <div *ngFor="let row of [].constructor(8); let i = index" class="row">
+      <div class="header-cell">{{ i + 1 }}</div>  
+      <div *ngFor="let col of [].constructor(8); let j = index" 
+           [class.white]="(i + j) % 2 === 0" 
+           [class.black]="(i + j) % 2 !== 0" 
+           class="square"
+           (click)="paintSquare(i, j)">
+      </div>
+    </div>
+
+  </div>
+</div>
+<p>
+  Razonamiento lógico:Un tablero de 8X8 tiene 64 casillas, si quisieramos 
+  pintarlo por completo
+  deberiamos en principio tratar de pintar 32 casillas de rojo y 32 de azul
+  pero tambien tenemos que verificar que ninguna fila ni columna
+  tenga la misma cantidada de casillas pintadas de rojo.
+ Las posibles cantidades 
+  de casillas rojas en cada fila deberían ser 0, 1, 2, ..., hasta 7
+  . Sin embargo, para tener una cantidad total de 32 
+  espacios rojos en todo el tablero, es imposible ya que la suma de
+0+1+2+3+4+5+6+7 da 28 casilleros rojos sin que haya dos filas o columnas iguales 
+si aumentamos el tamaño del tablero a 1000x1000, 
+la situación sigue siendo imposible de resolver por las mismas 
+razones. En este caso, tendríamos 1000 filas y 1000 columnas, y
+ querríamos tener exactamente 500.000 casillas rojas. 
+ Para evitar que dos filas o dos columnas tengan 
+ la misma cantidad de casillas rojas, necesitaríamos que 
+ las cantidades de rojas en cada fila sean todas distintas, lo 
+ cual implica 
+que deberían ser los números de 0 a 999 por cada fila, que suman en total:499.500
+
+
+</p>
